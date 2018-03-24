@@ -34,6 +34,14 @@
                 <greeting></greeting>
             </div>
 
+            <div id="vue-app">
+                <h2>Refs</h2>
+                <input type="text" ref="input" />
+                <button v-on:click="readRefs">Submit</button>
+                <p>Your fav food: {{ output }}</p>
+                <div ref="test">Hello</div>
+            </div>
+
 
         </div>
 
