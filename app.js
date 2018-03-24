@@ -1,105 +1,37 @@
-new Vue({
-    el: '#vue-app',
+var one = new Vue({
+    el: '#vue-app-one',
     data: {
-        name: 'Gosia',
-        job: 'MUA',
-        website: 'https://github.com/goseeya',
-        websiteTag: '<a href="https://github.com/goseeya">The Gosia Website</a>',
-        age: 23,
-        x: 0,
-        y: 0,
-
-        name: '',
-        age: 20,
-        a: 0,
-        b: 0,
-
-        available: false,
-        nearby: false,
-
-
-        error: false,
-        success: false,
-
-        characters:['Mario','Luigi','Yoshi','Bowser'],
-        ninjas: [
-            { name:'Ryu', age:25 },
-            { name:'Yoshi', age:35 },
-            { name: 'Ken', age:55 }
-        ],
-
-
-        health: 100,
-        ended: false
+        title: 'Vue AppOne'
     },
     methods: {
-        greet: function(time){
-            return 'Good ' + time + ' ' + this.name;
-        },
-        add: function(inc){
-            this.age += inc;
-        },
-        subtract: function(dec){
-            this.age -= dec;
-        },
-        updateXY: function(event){
-            // console.log(event);
-            this.x = event.offsetX;
-            this.y = event.offsetY;
-        },
-        click: function(){
-            alert('You clicked me');
-        },
-
-
-        logName: function(){
-            console.log('You entered your name')
-        },
-
-        logAge: function(){
-            console.log('You entered your age')
-        },
-
-        // addToA: function(){
-        //     console.log('addToA');
-        //     return this.a + this.age;
-        // },
-        // addToB: function(){
-        //     console.log('addToB')
-        //     return this.b + this.age;
-        // }
-
         
-
-        punch: function(){
-            this.health -= 10;
-            if(this.health <= 0){
-                this.ended = true
-            }
-        },
-        restart: function(){
-            this.health = 100;
-            this.ended = false;
-        },
         
     },
 
     computed: {
-        addToA: function(){
-            console.log('addToA');
-            return this.a + this.age;
-        },
-        addToB: function(){
-            console.log('addToB')
-            return this.b + this.age;
-        },
+       greet: function(){
+           return 'Hello from app one :)'
+       }
+    }
+});
 
+var two = new Vue({
+    el: '#vue-app-two',
+    data: {
+        title: 'Vue App Two'
+    },
+    methods: {
+        changeTitle: function(){
+            one.title = "Title changed"
+        }
+        
+    },
 
-        compClasses: function(){
-            return {
-                available: this.available,
-                nearby: this.nearby
-            }
+    computed: {
+        greet: function(){
+            return 'Yo dudes, this is app 2 speaking to ya :)'
         }
     }
 });
+
+two.title = "Changed from outside";
